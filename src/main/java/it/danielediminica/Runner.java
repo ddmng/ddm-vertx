@@ -11,4 +11,10 @@ public class Runner extends AbstractVerticle {
     .listen(
         Integer.getInteger("http.port"), System.getProperty("http.address"));
   }
+
+  public static void main(String[] args) {
+    Vertx vertx = Vertx.vertx();
+    vertx.deployVerticle(new Runner());
+  }
+
 }
