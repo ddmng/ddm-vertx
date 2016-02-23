@@ -1,2 +1,2 @@
 # ddm-vertx
-My personal web site served through a custom vertx cartrige at Openshif
+My personal web site served through a custom vertx cartrige at Openshift.
