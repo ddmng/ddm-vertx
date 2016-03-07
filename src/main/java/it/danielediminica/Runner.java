@@ -37,6 +37,10 @@ public class Runner extends AbstractVerticle {
             logger.debug("Adding static handler");
             router.route("/*").handler(StaticHandler.create().setCachingEnabled(false));
 
+            router.route("/*").failureHandler(h -> {
+                h.response().sendFile("webroot/404.html");
+            });
+
         };
 
         vertx = Vertx.vertx();
