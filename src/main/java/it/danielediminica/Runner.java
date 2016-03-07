@@ -30,13 +30,16 @@ public class Runner extends AbstractVerticle {
             router = Router.router(vertx);
             vertx.deployVerticle(new Runner());
 
+            // /now special handler
             router.route("/now").handler(h -> {
                 h.response().sendFile("webroot/now.html");
             });
 
+            // static handler
             logger.debug("Adding static handler");
             router.route("/*").handler(StaticHandler.create().setCachingEnabled(false));
 
+            // 404 errors
             router.route("/*").failureHandler(h -> {
                 h.response().sendFile("webroot/404.html");
             });
